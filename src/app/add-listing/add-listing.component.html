@@ -4,7 +4,7 @@
 <form (submit)="onAddSubmit()">
   <div class="form-group">
     <label>Title</label>
-    <input class="form-control" type="text" [(ngModel)]="title" name="title">
+    <input class="form-control" type="text" [(ngModel)]="title" name="title" [ngModelOptions]="{standalone: true}">
   </div>
   <div class="form-group">
     <label>City</label>
@@ -16,7 +16,7 @@
   </div>
   <div class="form-group">
     <label>Bedrooms</label>
-    <input class="form-control" type="text" [(ngModel)]="bedrooms" name="bedrooms">
+    <input class="form-control" type="number" [(ngModel)]="bedrooms" name="bedrooms">
   </div>
   <div class="form-group">
     <label>Type</label>
@@ -27,11 +27,11 @@
     </select>
   </div>
   <div class="form-group">
-    <input id="image" type="file" [(ngModel)]="image">
+    <input id="image" type="file" [(ngModel)]="image" [ngModelOptions]="{standalone: true}">
   </div>
   <div class="form-group">
     <label>Price</label>
-    <input class="form-conrol" type="text" [(ngModel)]="price" name="price">
+    <input class="form-control" type="text" [(ngModel)]="price" name="price">
   </div>
   <input type="submit" value="submit" class="btn btn-success">
 </form>
