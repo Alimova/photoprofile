@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule, Routes} from '@angular/router';
-import { AngularFireModule } from 'angularfire2';
-import {FirebaseService} from './services/firebase.service'
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import {FirebaseService} from './services/firebase.service';
+//import {FlashMessagesModule} from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -22,10 +23,15 @@ export const firebaseConfig = {
   messagingSenderId: "655998071954"
 };
 
+const firebaseAuthConfig = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Popup
+};
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
   {path: 'listings', component:ListingsComponent},
+  {path: 'listing/:id', component:ListingComponent},
   {path: 'add-listings', component:AddListingComponent}
 ]
 
@@ -43,8 +49,9 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    //FlashMessagesModule,
     RouterModule.forRoot(appRoutes),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig)
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]
