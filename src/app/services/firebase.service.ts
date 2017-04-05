@@ -18,7 +18,7 @@ export class FirebaseService {
     }
 
     getListingDetails(id){
-      this.listing = this.af.database.object('/listings'+id) as FirebaseObjectObservable<Listing>;
+      this.listing = this.af.database.object('/listings/'+id) as FirebaseObjectObservable<Listing>;
       return this.listing;
       //console.log(listing);
     }
@@ -46,4 +46,5 @@ interface Listing{
   owner?:string;
   bedrooms?:string;
   price?:string;
+  path?:string;
 }
