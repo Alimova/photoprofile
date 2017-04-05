@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule, Routes} from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
+import {FirebaseService} from './services/firebase.service'
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -11,6 +13,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ListingComponent } from './listing/listing.component';
 import { AddListingComponent } from './add-listing/add-listing.component';
 import { EditListingComponent } from './edit-listing/edit-listing.component';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyChH1xUDxYZCdFczE9S3wlp0a-kNh46ZX8",
+  authDomain: "photoprofile-2059d.firebaseapp.com",
+  databaseURL: "https://photoprofile-2059d.firebaseio.com",
+  storageBucket: "photoprofile-2059d.appspot.com",
+  messagingSenderId: "655998071954"
+};
+
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
@@ -32,9 +43,10 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
