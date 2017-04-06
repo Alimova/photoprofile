@@ -5,15 +5,15 @@ import * as firebase from 'firebase';
 @Injectable()
 export class FirebaseService {
   listings: FirebaseListObservable<any[]>;
-  listing: FirebaseObjectObservable<any[]>;
+  listing: FirebaseObjectObservable<any>;
   folder: any;
 
   constructor(private af: AngularFire) {
     this.folder = 'listingimages';
+    this.listings = this.af.database.list('/listings') as FirebaseListObservable<Listing[]>;
   }
 
     getListings(){
-    this.listings = this.af.database.list('/listings') as FirebaseListObservable<Listing[]>;
       return this.listings;
     }
 
@@ -34,6 +34,14 @@ export class FirebaseService {
         return this.listings.push(listing);
       })
     }
+  }
+
+  updateListing(id, listing){
+    return this.listings.update(id, listing);
+  }
+
+  deleteListing(id){
+    return this.listings.remove(id);
   }
 }
 
