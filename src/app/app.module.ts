@@ -8,12 +8,12 @@ import {FirebaseService} from './services/firebase.service';
 //import {FlashMessagesModule} from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { ListingsComponent } from './listings/listings.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ListingComponent } from './listing/listing.component';
-import { AddListingComponent } from './add-listing/add-listing.component';
-import { EditListingComponent } from './edit-listing/edit-listing.component';
+import { HomeComponent } from './components/home/home.component';
+import { ListingsComponent } from './components/listings/listings.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ListingComponent } from './components/listing/listing.component';
+import { AddListingComponent } from './components/add-listing/add-listing.component';
+import { EditListingComponent } from './components/edit-listing/edit-listing.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyChH1xUDxYZCdFczE9S3wlp0a-kNh46ZX8",
